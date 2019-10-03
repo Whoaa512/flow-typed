@@ -18,10 +18,11 @@
     "clean": "rimraf dist",
     "flow": "flow",
     "lint": "eslint .; exit 0",
-    "prepublish": "mkdirp dist && npm run test",
+    "prepublish": "npm run snyk-protect && mkdirp dist && npm run test",
     "test": "npm run clean && npm run build && npm run test-quick",
     "test-quick": "jest && npm run lint",
-    "watch": "mkdirp dist && babel --source-maps --watch=./src --out-dir=./dist"
+    "watch": "mkdirp dist && babel --source-maps --watch=./src --out-dir=./dist",
+    "snyk-protect": "snyk protect"
   },
   "dependencies": {
     "@octokit/rest": "^15.2.6",
@@ -38,7 +39,8 @@
     "through": "^2.3.8",
     "unzipper": "^0.8.11",
     "which": "^1.3.0",
-    "yargs": "^4.2.0"
+    "yargs": "^4.2.0",
+    "snyk": "^1.230.5"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -72,5 +74,6 @@
     "testPathIgnorePatterns": [
       "<rootDir>/.*/__[^/]*-fixtures__/.*"
     ]
-  }
+  },
+  "snyk": true
 }
