@@ -1,8 +1,13 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.14.1
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-HTTPSPROXYAGENT-469131:
     - '@octokit/rest > https-proxy-agent':
         patched: '2019-10-03T21:48:38.260Z'
+  SNYK-JS-LODASH-567746:
+    - '@octokit/rest > lodash':
+        patched: '2020-04-30T21:48:34.791Z'
+    - table > lodash:
+        patched: '2020-04-30T21:48:34.791Z'
