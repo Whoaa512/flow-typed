@@ -7,7 +7,9 @@
   "main": "index.js",
   "scripts": {
     "precommit": "lint-staged",
-    "test": "eslint **/**/test_*"
+    "test": "eslint **/**/test_*",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "babel-eslint": "^8.2.1",
@@ -15,7 +17,8 @@
     "husky": "^0.14.3",
     "lint-staged": "^4.0.3",
     "prettier": "^1.9.2",
-    "prettier-package-json": "^1.4.0"
+    "prettier-package-json": "^1.4.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "eslint-plugin-flow-typed": "^1.0.0",
@@ -30,7 +33,11 @@
         "prettier --write",
         "git add"
       ],
-      "*.js": ["eslint --fix", "git add"]
+      "*.js": [
+        "eslint --fix",
+        "git add"
+      ]
     }
-  }
+  },
+  "snyk": true
 }
